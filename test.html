@@ -12,7 +12,7 @@
             </div>
     <div class="wrepper">
                 <h2>Анкета</h2>
-        <form action="" method="post" name="test" id="form" onsubmit="valid(this)">
+        <form action="" method="post" name="test" id="form" class="form" >
                 Ваше имя :<br>
                 <input type="text" name="name" placeholder="имя" id="name"><br><br>
                 Email:<br>
@@ -49,18 +49,8 @@
             </div>
             <p class="button">Анкета</p>
     <script>
-        function valid(form){
-            var email  = form.email.value;
-            var name = form.name.value;
-            var sex = form.sex.value;
-            var date = form.date.value;
-            var auto = form.auto.value;
-            var select = form.select.value;
-            var seasons = form.seasons.value;
-            var about = form.about.value;
-            var foto = form.foto.value;
-            console.log('dodo');
-}
+//         function valid(form){
+// }
         var submit = document.querySelector('.submit')
         var button = document.querySelector('.button');
         var wrepper = document.querySelector('.wrepper');
@@ -72,20 +62,35 @@
 
         var html = '';
         submit.addEventListener('click', function(){
+            var email  = form.email.value;
+            var name = form.name.value;
+            var sex = form.sex.value;
+            var date = form.date.value;
+            var auto = form.auto.value;
+            var select = form.select.value;
+            var seasons = form.seasons.value;
+            var about = form.about.value;
+            var foto = form.foto.value;
             wrepper.style.display = 'none';
             button.style.display = 'block';
-            html = ` <h3>Анкета</h3>
-                <img src="${foto}" alt="фото участника">
-                <p>Имя:${name}</p>
-                <p>Email:${email}</p>
-                <p>Пол:${sex}</p>
-                <p>Д.Р:${date}</p>
-                <p>Авто:${auto}</p>
-                <p>Любимое время года:${select}</p>
-                <p>О себе:${about}</p>`
-                alert('html')
-                result.innerHTML=html;
+             html = ` <h3>Анкета</h3>
+                    <img src="${foto}" alt="фото участника">
+                    <p>Имя:${name}</p>
+                    <p>Email:${email}</p>
+                    <p>Пол:${sex}</p>
+                    <p>Д.Р:${date}</p>
+                    <p>Авто:${auto}</p>
+                    <p>Любимое время года:${select}</p>
+                    <p>О себе:${about}</p>`
+                    alert('html')
+                 result.innerHTML=html;
         });
+        var form = document.querySelector('.form');
+        form.addEventListener('submit', function(e) { 
+        e.preventDefault(); 
+        });
+        
+        
        
         </script>
 </body>
