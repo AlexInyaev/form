@@ -8,18 +8,17 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-        <div class="result">
-            </div>
+        
     <div class="wrepper">
                 <h2>Анкета</h2>
         <form action="" method="post" name="test" id="form" class="form" >
                 Ваше имя :<br>
-                <input type="text" name="name" pattern="[0-9]{6}" placeholder="имя" id="name" ><br><br>
+                <input type="text" name="name"  placeholder="имя" id="name" required><br><br>
                 Email:<br>
-                <input type="email" name="email" placeholder="Email" id="email"><br><br>
+                <input type="email" name="email" pattern="/[0-9a-z_-]+@[0-9a-z_-]+\.[a-z]{2,5}/i" required placeholder="Email" id="email"><br><br>
                 Ваш пол :<br>
-                М<input type="radio" name="sex"  id="sex" value="Мужской" ><br>
-                Ж<input type="radio" name="sex" id="sex" value="Женский" ><br><br>
+                М<input type="radio" name="sex"  id="sex" value="Мужской" required><br>
+                Ж<input type="radio" name="sex" id="sex" value="Женский" required><br><br>
                 Дата рождения :<br>
                 <input type="date" class="date" name="date" value="1111-11-11" ><br><br>
                 У Вас есть авто ?<br>
@@ -41,16 +40,26 @@
                 <input type="checkbox" name="seasons" class="seasons" value="Лето"><br>
                 Осень.
                 <input type="checkbox" name="seasons" class="seasons" value=" Осень"><br><br>
+
+
+                Любимое время года :<br>
+                Зима  .
+                <input type="checkbox" name="checkbox" class="checkbox" value="Зима"><br>
+                Весна.
+                <input type="checkbox" name="checkbox" class="checkbox" value="Весна"><br>
+                Лето  .
+                <input type="checkbox" name="checkbox" class="checkbox" value="Лето"><br>
+                Осень.
+                <input type="checkbox" name="checkbox" class="checkbox" value="Осень"><br><br>
+
+
                 Пару слов о себе :<br>
                 <textarea class="textarea" name="about"></textarea><br><br>
-                <!-- Загрузите Ваше фото:<br>
-                <input type="file" class="file" name="foto"><br><br> -->
                 <input type="submit" name="submit" class="submit" value="готово">
             </div>
             <p class="button">Анкета</p>
+            <!-- <button type="button" class="button">Анкета</button> -->
     <script>
-//         function valid(form){
-// }
         var submit = document.querySelector('.submit')
         var button = document.querySelector('.button');
         var wrepper = document.querySelector('.wrepper');
@@ -74,10 +83,9 @@
             var select = form.select.value;
             var seasons = form.seasons.value;
             var about = form.about.value;
-            // var foto = form.foto.value;
-            wrepper.style.display = 'none';
-            button.style.display = 'block';
-            result.style.display = 'block';
+            // wrepper.style.display = 'none';
+             button.style.display = 'block';
+             result.style.display = 'block';
             bgC.style.backgroundColor = '#fff';
              html = ` <h3>Анкета</h3>
                     <p>Имя:${name}</p>
@@ -94,7 +102,13 @@
         form.addEventListener('submit', function(e) { 
         e.preventDefault(); 
         });
-        
+        var checkbox = checkBox.checked;
+
+        for(var i=0; i<radioGender.length; i++) {
+        if (radioGender[i].checked) {
+            var radio = radioGender[i].value;
+        }
+    }
         
        
         </script>
