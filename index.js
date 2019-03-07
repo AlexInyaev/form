@@ -21,7 +21,17 @@ var submit = document.querySelector('.submit')
             var select = form.select.value;
             var seasons = form.seasons.value;
             var about = form.about.value;
-            // wrepper.style.display = 'none';
+            var fail = false;  // из за скрытия форм получается ошибка при проверке через атребуты тега input
+	if(name==""||name==" ")    //даннай способ позволяет сделать не атребутную проверку проверку 
+            fail='Вы не ввели имя';
+		else if( email.split('@').length-1== 0) //проверка на @
+			fail='Вы  ввели не верный адрес';
+		else if(sex == "")
+			fail='Укажите пол';
+		if(fail){
+			alert(fail);
+		}else{
+            wrepper.style.display = 'none';
              button.style.display = 'block';
              result.style.display = 'block';
             bgC.style.backgroundColor = '#fff';
@@ -35,7 +45,7 @@ var submit = document.querySelector('.submit')
                     <p>Любимое время года:${seasons}</p>
                     <p>О себе:${about}</p>`
                  result.innerHTML=html;
-        });
+         } });
         var form = document.querySelector('.form');
         form.addEventListener('submit', function(e) { 
         e.preventDefault(); 
